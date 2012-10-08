@@ -37,12 +37,14 @@ OUTPUT_MANUAL="${OUTPUT}_manual"
 MCRYPT_DIR=libmcrypt-${LIBMCRYPT_VERSION}
 APACHE_DIR=httpd-${APACHE_VERSION}
 PHP_DIR=php-${PHP_VERSION}
-MCRYPT_ROOT=/app
+MCRYPT_ROOT=/app/mcrypt
 APACHE_ROOT=/app/apache
 PHP_ROOT=/app/php
 
 BUILD_DIR=`mktemp -d`
 pushd "$BUILD_DIR"
+
+echo `pwd`
 
 log_action main "Build log file: $BUILD_LOG"
 log_action apache "Downloading apache from $APACHE_URL"
@@ -98,6 +100,8 @@ popd >/dev/null
 
 pushd app >/dev/null
 
+echo `pwd`
+
 # DEVEL_OTHER="bin apache/build share/aclocal"
 # DEVEL="$DEVEL_OTHER `find . -maxdepth 2 -name include`"
 # 
@@ -118,8 +122,7 @@ pushd app >/dev/null
 # mv "${BUILD_DIR}/${OUTPUT_DEVEL}.tar.bz2" \
 #   "${BUILD_DIR}/${OUTPUT_MANUAL}.tar.bz2" \
 #   "${BUILD_DIR}/${OUTPUT}.tar.bz2" \
-  .
+#  .
 
-log_action main "Output files: `ls *.tar.bz2`"
-log_action main "DONE"
-
+# log_action main "Output files: `ls *.tar.bz2`"
+# log_action main "DONE"

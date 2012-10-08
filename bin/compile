@@ -9,9 +9,11 @@ set -x
 
 APACHE_VERSION="2.2.22"
 PHP_VERSION="5.4.1"
-APACHE_BINARY_URL="http://projects.interlated.com.au/apache-${APACHE_VERSION}_php-${PHP_VERSION}.tar.bz2"
+# APACHE_BINARY_URL="http://projects.interlated.com.au/apache-${APACHE_VERSION}_php-${PHP_VERSION}.tar.bz2"
+APACHE_BINARY_URL="https://dl.dropbox.com/u/2203163/amp.tar.bz2"
 APACHE_DIR=apache
 PHP_DIR=php
+MCRYPT_DIR=mcrypt
 
 log_action() 
 {
@@ -54,8 +56,8 @@ fi
 
 log_action "Bundling apache $APACHE_VERSION and php $PHP_VERSION from $APACHE_BINARY_URL"
 curl $CURL_FLAGS "$APACHE_BINARY_URL" | tar xj
-if [ ! -d $APACHE_DIR ] || [ ! -d $PHP_DIR ]; then
-  log_fail "Could not find $APACHE_DIR or $PHP_DIR - download may have failed"
+if [ ! -d $APACHE_DIR ] || [ ! -d $PHP_DIR ] || [ ! -d $MCRYPT_DIR ]; then
+  log_fail "Could not find $APACHE_DIR or $PHP_DIR or $MCRYPT_DIR - download may have failed"
   log_fail "pwd listing: `ls`"
   exit 1
 fi
