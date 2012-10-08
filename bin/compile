@@ -9,8 +9,7 @@ set -x
 
 APACHE_VERSION="2.2.22"
 PHP_VERSION="5.4.1"
-# APACHE_BINARY_URL="http://projects.interlated.com.au/apache-${APACHE_VERSION}_php-${PHP_VERSION}.tar.bz2"
-APACHE_BINARY_URL="https://dl.dropbox.com/u/2203163/amp.tar.bz2"
+APACHE_BINARY_URL="https://s3.amazonaws.com/heroku-bins/amp.tar.bz2"
 APACHE_DIR=apache
 PHP_DIR=php
 MCRYPT_DIR=mcrypt
