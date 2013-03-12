@@ -75,13 +75,12 @@ echo "+ Fetching libmcrypt libraries..."
 mkdir -p /app/local
 curl -L "https://s3.amazonaws.com/heroku-buildpack-php-tyler/libmcrypt-${LIBMCRYPT_VERSION}.tar.gz" -o - | tar xz -C /app/local
 
-mkdir -p /app/php/ext
-cp /app/mcrypt/lib/libmcrypt.so.4 /app/php/ext
-
 cat >>boot.sh <<EOF
 for var in \`env|cut -f1 -d=\`; do
   echo "PassEnv \$var" >> /app/apache/conf/httpd.conf;
 done
+mkdir -p /app/php/ext
+cp -f /app/mcrypt/lib/libmcrypt.so.4 /app/php/ext
 touch /app/apache/logs/error_log
 touch /app/apache/logs/access_log
 tail -F /app/apache/logs/error_log &
