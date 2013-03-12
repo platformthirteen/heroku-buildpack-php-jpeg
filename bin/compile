@@ -73,7 +73,7 @@ ln -s /app/php/bin/php bin/php
 echo "+ Fetching libmcrypt libraries..."
 # install mcrypt for portability.
 mkdir -p /app/local
-curl -L "https://s3.amazonaws.com/${S3_BUCKET}/libmcrypt-${LIBMCRYPT_VERSION}.tar.gz" -o - | tar xz -C /app/local
+curl -L "https://s3.amazonaws.com/heroku-buildpack-php-tyler/libmcrypt-${LIBMCRYPT_VERSION}.tar.gz" -o - | tar xz -C /app/local
 
 cat >>boot.sh <<EOF
 for var in \`env|cut -f1 -d=\`; do
