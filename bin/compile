@@ -13,7 +13,7 @@ APACHE_BINARY_URL="https://s3.amazonaws.com/heroku-bins/amp.tar.bz2"
 APACHE_DIR=apache
 PHP_DIR=php
 MCRYPT_DIR=mcrypt
-LIBMCRYPT_VERSION="2.5.9"
+LIBMCRYPT_VERSION="2.5.8"
 
 log_action() 
 {
