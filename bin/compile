@@ -13,6 +13,7 @@ APACHE_BINARY_URL="https://s3.amazonaws.com/heroku-bins/amp.tar.bz2"
 APACHE_DIR=apache
 PHP_DIR=php
 MCRYPT_DIR=mcrypt
+LIBMCRYPT_VERSION="2.5.9"
 
 log_action() 
 {
@@ -69,6 +70,10 @@ cp $LP_DIR/conf/php.ini "$PHP_DIR"
 [ -d bin ] || mkdir -p bin
 ln -s /app/php/bin/php bin/php
 
+echo "+ Fetching libmcrypt libraries..."
+# install mcrypt for portability.
+mkdir -p /app/local
+curl -L "https://s3.amazonaws.com/${S3_BUCKET}/libmcrypt-${LIBMCRYPT_VERSION}.tar.gz" -o - | tar xz -C /app/local
 
 cat >>boot.sh <<EOF
 for var in \`env|cut -f1 -d=\`; do
