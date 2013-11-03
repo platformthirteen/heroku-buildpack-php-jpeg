@@ -9,7 +9,7 @@ set -x
 
 APACHE_VERSION="2.2.22"
 PHP_VERSION="5.4.1"
-APACHE_BINARY_URL="https://s3.amazonaws.com/heroku-bins/amp.tar.bz2"
+APACHE_BINARY_URL="http://amp.chrisbutler.me/"
 APACHE_DIR=apache
 PHP_DIR=php
 MCRYPT_DIR=mcrypt
